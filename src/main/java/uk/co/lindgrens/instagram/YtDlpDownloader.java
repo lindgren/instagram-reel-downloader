@@ -7,10 +7,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class YtDlpDownloader {
-    public void download(String url, Path outputDir) throws IOException, InterruptedException {
+    public void download(String url, Path outputDir, String fileNameTemplate, int retries) throws IOException, InterruptedException {
         Files.createDirectories(outputDir);
 
-        List<String> command = buildCommand(url, outputDir);
+        List<String> command = buildCommand(url, outputDir, fileNameTemplate, retries);
         ProcessBuilder processBuilder = new ProcessBuilder(command);
         processBuilder.inheritIO();
         Process process = processBuilder.start();
@@ -21,10 +21,12 @@ public class YtDlpDownloader {
         }
     }
 
-    List<String> buildCommand(String url, Path outputDir) {
-        String outputTemplate = outputDir.resolve("%(uploader)s-%(id)s.%(ext)s").toString();
+    List<String> buildCommand(String url, Path outputDir, String fileNameTemplate, int retries) {
+        String outputTemplate = outputDir.resolve(fileNameTemplate).toString();
         List<String> cmd = new ArrayList<>();
         cmd.add("yt-dlp");
+        cmd.add("--retries");
+        cmd.add(String.valueOf(retries));
         cmd.add("-o");
         cmd.add(outputTemplate);
         cmd.add(url);

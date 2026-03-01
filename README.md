@@ -22,14 +22,19 @@ mvn clean verify
 
 ## Run
 
-```bash
-mvn -q exec:java -Dexec.mainClass="uk.co.lindgrens.instagram.App" -Dexec.args="https://www.instagram.com/reel/<ID>/"
-```
-
-Or run the jar after packaging:
+Default usage:
 
 ```bash
 java -cp target/instagram-reel-downloader-1.0-SNAPSHOT.jar uk.co.lindgrens.instagram.App "https://www.instagram.com/reel/<ID>/"
+```
+
+With options:
+
+```bash
+java -cp target/instagram-reel-downloader-1.0-SNAPSHOT.jar uk.co.lindgrens.instagram.App \
+  --retries 5 \
+  --name-template "%(title)s-%(id)s.%(ext)s" \
+  "https://www.instagram.com/reel/<ID>/"
 ```
 
 ## Output location
