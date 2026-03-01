@@ -51,9 +51,11 @@ class AppTest {
         assertEquals("yt-dlp", cmd.get(0));
         assertEquals("--retries", cmd.get(1));
         assertEquals("5", cmd.get(2));
-        assertEquals("-o", cmd.get(3));
-        assertEquals("/tmp/out/%(title)s.%(ext)s", cmd.get(4));
-        assertEquals(url, cmd.get(5));
+        assertEquals("-f", cmd.get(3));
+        assertEquals("bv*+ba/b", cmd.get(4));
+        assertEquals("-o", cmd.get(5));
+        assertEquals("/tmp/out/%(title)s.%(ext)s", cmd.get(6));
+        assertEquals(url, cmd.get(7));
     }
 
     @Test

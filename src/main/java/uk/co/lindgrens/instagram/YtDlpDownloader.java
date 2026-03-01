@@ -27,6 +27,8 @@ public class YtDlpDownloader {
         cmd.add("yt-dlp");
         cmd.add("--retries");
         cmd.add(String.valueOf(retries));
+        cmd.add("-f");
+        cmd.add("bv*+ba/b");
         cmd.add("-o");
         cmd.add(outputTemplate);
         cmd.add(url);
