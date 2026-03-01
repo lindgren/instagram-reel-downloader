@@ -1,4 +1,4 @@
-package com.lindgren.instagram;
+package uk.co.lindgrens.instagram;
 
 /**
  * Hello world!

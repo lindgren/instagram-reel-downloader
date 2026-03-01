@@ -1,4 +1,4 @@
-package com.lindgren.instagram;
+package uk.co.lindgrens.instagram;
 
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
