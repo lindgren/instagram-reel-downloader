@@ -18,3 +18,4 @@ A simple tool to use to quickly download Instagram videos
 ## Acceptance Criteria
 - [ ] Given a valid user provided url as input, when I execute the CLI command, then desired Instagram video should be downloaded to the default folder
 - [ ] Given a valid Instagram reel URL where multiple media formats are available, when the CLI downloads the video, then the downloader must select the highest available quality format (prefer best video+audio with fallback to best single stream)
+- [ ] Given a valid Instagram URL and CLI options `--retries <n>` and `--name-template <template>`, when the download command is executed, then the downloader must pass retry count to yt-dlp and save the file using the provided filename template
