@@ -52,10 +52,12 @@ class AppTest {
         assertEquals("--retries", cmd.get(1));
         assertEquals("5", cmd.get(2));
         assertEquals("-f", cmd.get(3));
-        assertEquals("bv*+ba/b", cmd.get(4));
-        assertEquals("-o", cmd.get(5));
-        assertEquals("/tmp/out/%(title)s.%(ext)s", cmd.get(6));
-        assertEquals(url, cmd.get(7));
+        assertEquals("bv*[vcodec^=avc1]+ba[acodec^=mp4a]/b[ext=mp4]/bv*+ba/b", cmd.get(4));
+        assertEquals("--merge-output-format", cmd.get(5));
+        assertEquals("mp4", cmd.get(6));
+        assertEquals("-o", cmd.get(7));
+        assertEquals("/tmp/out/%(title)s.%(ext)s", cmd.get(8));
+        assertEquals(url, cmd.get(9));
     }
 
     @Test

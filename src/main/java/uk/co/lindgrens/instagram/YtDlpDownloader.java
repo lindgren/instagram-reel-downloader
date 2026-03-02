@@ -28,7 +28,9 @@ public class YtDlpDownloader {
         cmd.add("--retries");
         cmd.add(String.valueOf(retries));
         cmd.add("-f");
-        cmd.add("bv*+ba/b");
+        cmd.add("bv*[vcodec^=avc1]+ba[acodec^=mp4a]/b[ext=mp4]/bv*+ba/b");
+        cmd.add("--merge-output-format");
+        cmd.add("mp4");
         cmd.add("-o");
         cmd.add(outputTemplate);
         cmd.add(url);
